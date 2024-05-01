@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home | Exam Vault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Exam Vault */
+      .web-title {
+        position: absolute;
+        width: 245px;
+        height: 50px;
+        left: 50px;
+        top: 0px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          #4c64f4 0%,
+          #46cedc 54.98%,
+          #f2debc 113.51%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subject-title {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 101px;
+        margin-top: 100px;
+        align-items: center;
+        text-align: center;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          #4c64f4 0%,
+          #46cedc 54.98%,
+          #f2debc 113.51%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+        .contDiv{
+            max-width: 800px;
+        }
+        .templateDivClass{
+            background: red;
+            width: 100%;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="/favicon.jpeg">
+  </head>
+  <body>
+  <template id="product-card-template">
+    <div class=" p-6 border w-full mb-9 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <h5 id="templateName" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            
+          </h5>
+        <p id="templateVideos" class="templateVideos mb-2 font-normal text-gray-700 dark:text-gray-400">
+        </p>
+        <p id="templateBooks" class="templateBooks mb-2 font-normal text-gray-700 dark:text-gray-400">
+          Books
+        </p>
+        <p id="templateExams" class="templateExams mb-3 font-normal text-gray-700 dark:text-gray-400">
+          Exams: 
+        </p>
+        <p id="tempTest" class="tempTest"></p>
+
+        <a
+          href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Visit
+          <svg
+            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      </div>
+</template>
+   
+   
+    <h1 class="web-title"><a href="home.ejs">Grade 8</a></h1>
+    <h1 class="subject-title">Subjects</h1>
+
+   
+   
+    <div id="product-container" class="contDiv mx-auto p-6"></div>
+    
+    
+     <script>
+// importing the template
+ const productCardTemplate = document.getElementById('product-card-template');
+
+// the array of contents
+const products = [
+{ name: 'Amharic', link: "/amharic", videos: 1, books: 1, exams: 5 },
+    { name: 'English', link: "/english", videos: 1, books: 1, exams: 5 },
+    { name: 'Mathematics', link: "/maths", videos: 1, books: 1, exams: 5},
+    { name: 'Social', videos: 2, link: "social", books: 1, exams: 5},
+    { name: 'General Science', link: "/gs", videos: 1, books: 1, exams: 5},
+    { name: 'Citizenship',link: "/citizen", videos: 1, books: 1, exams: 5},
+];
+
+
+// Populate the product container with product cards
+const productContainer = document.getElementById('product-container');
+//populate the function
+products.forEach(product => {
+    
+    //creating a copy of the template to multiply 
+    const clone = document.importNode(productCardTemplate.content, true);
+    
+    //importing all the paragrapghs
+    const tempPara = clone.querySelectorAll("p");
+    const linkPart = clone.querySelector("a")
+    
+    //separating the paragraphs
+    const para1 = tempPara[0]
+    const para2 = tempPara[1]
+    const para3 = tempPara[2]
+    
+    //printing the values in the array to the copy
+    clone.querySelector("h5").innerHTML = product.name;
+    para1.innerHTML = `Videos: ${product.videos}`;
+    para2.innerHTML = `Books: ${product.books}`;
+    para3.innerHTML = `Exams: ${product.exams}`;
+    linkPart.setAttribute("href", product.link)
+    
+    //appending the populated element
+    productContainer.appendChild(clone);
+});
+
+      </script>
+  </body>
+</html>

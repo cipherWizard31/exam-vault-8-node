@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams - <%= title %>| Exam Vault</title>
+    <style>
+        /* Exam Vault */
+        .web-title {
+          position: absolute;
+          width: 245px;
+          height: 50px;
+          left: 50px;
+          top: 0px;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 50px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          background: linear-gradient(
+            180deg,
+            #4c64f4 0%,
+            #46cedc 54.98%,
+            #f2debc 113.51%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+  
+        .subject-title {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 60px;
+          line-height: 101px;
+          margin-top: 100px;
+          align-items: center;
+          text-align: center;
+          text-align: center;
+          background: linear-gradient(
+            180deg,
+            #4c64f4 0%,
+            #46cedc 54.98%,
+            #f2debc 113.51%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+          .contDiv{
+              max-width: 800px;
+          }
+          .templateDivClass{
+              background: red;
+              width: 100%;
+          }
+      </style>
+      <link rel="icon" type="image/x-icon" href="favicon.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+     <h1 class="web-title"><a href="../../">Grade 8</a></h1>
+    <h1 class="subject-title"><%= title %></h1>
+
+    <div id="product-container" class="contDiv mx-auto p-6">
+        <div class=" p-6 border w-full mb-9 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+             <h5 id="templateName" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+             Download Exams
+            </h5>
+            <a
+              target="_blank"
+              href="./exams/download"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Download
+              <svg
+                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
