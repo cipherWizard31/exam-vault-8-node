@@ -88,20 +88,22 @@ app.get("/amharic", (req, res) => {
   res.render("index", { name: subject[0].name, content: subject[0].content, videos: subject[0].videos, books: subject[0].books, exams: subject[0].exams, videosLink: subject[0].videosLink, booksLink: subject[0].booksLink, examsLink: subject[0].examsLink });
 });
 app.get("/amharic/videos", (req, res) => {
-    res.render("videos", { title: "Amharic", ytVidLink: subject[0].ytVidLink})
+    res.render("videos", { title: subject[0].name, ytVidLink: subject[0].ytVidLink})
 });
 app.get("/amharic/books", (req, res) => {
-    res.render("books", { title: "Amharic"})
+    res.render("books", { title: subject[0].name })
 });
+app.get("/amharic/exams", (req, res) => {
+    res.render("exams", { title: subject[0].name })
+});
+    
 app.get("/amharic/books/download", (req, res) => {
     res.download("./db/g-8-amh.rar")
 });
 app.get("/amharic/exams/download", (req, res) => {
     res.download("./db/g-8-amh-model.rar")
 });
-app.get("/amharic/exams", (req, res) => {
-    res.render("exams", { title: "Amharic" })
-})
+
 
 
 
@@ -115,7 +117,7 @@ app.get("/english/books", (req, res) => {
     res.render("books", { title: subject[1].name})
 });
 app.get("/english/exams", (req, res) => {
-    res.render("exams", { title: "English" })
+    res.render("exams", { title: subject[1].name })
 });
 app.get("/english/books/download", (req, res) => {
     res.download("./db/g-8-english.rar")
@@ -137,7 +139,7 @@ app.get("/maths/books", (req, res) => {
     res.render("books", { title: subject[2].name})
 });
 app.get("/maths/exams", (req, res) => {
-    res.render("exams", { title: "Maths" })
+    res.render("exams", { title: subject[2].name })
 });
 app.get("/maths/books/download", (req, res) => {
     res.download("./db/g-8-maths.rar")
@@ -160,7 +162,7 @@ app.get("/social/books", (req, res) => {
     res.render("books", { title: subject[3].name})
 });
 app.get("/social/exams", (req, res) => {
-    res.render("exams", { title: "Social" })
+    res.render("exams", { title: subject[3].name })
 });
 app.get("/social/books/download", (req, res) => {
     res.download("./db/g-8-social.rar")
@@ -181,7 +183,7 @@ app.get("/gs/books", (req, res) => {
     res.render("books", { title: subject[4].name})
 });
 app.get("/gs/exams", (req, res) => {
-    res.render("exams", { title: "Social" })
+    res.render("exams", { title: subject[4].name })
 });
 app.get("/gs/books/download", (req, res) => {
     res.download("./db/g-8-gs.rar")
@@ -203,7 +205,7 @@ app.get("/citizen/books", (req, res) => {
     res.render("books", { title: subject[5].name})
 });
 app.get("/citizen/exams", (req, res) => {
-    res.render("exams", { title: "Citizenship" })
+    res.render("exams", { title: subject[5].name })
 });
 app.get("/citizen/books/download", (req, res) => {
     res.download("./db/g-8-citizen.rar")
